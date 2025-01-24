@@ -10,35 +10,30 @@ document.addEventListener("DOMContentLoaded", () => {
   let isAddMode = false;
   let isDeleteMode = false;
 
-  // Initialize state
   loadFavorites();
   loadCategories();
 
   githubBtn.addEventListener("click", () => {
-    window.open("https://github.com/juneshim/juneshim.github.io", "_blank");
+    window.open("https://github.com/juneshim/snskeyboard-chrome-extensions", "_blank");
   });
 
-  // Add button logic
   addBtn.addEventListener("click", () => {
     isAddMode = !isAddMode;
     isDeleteMode = false;
     updateButtonStates();
   });
 
-  // Delete button logic
   deleteBtn.addEventListener("click", () => {
     isDeleteMode = !isDeleteMode;
     isAddMode = false;
     updateButtonStates();
   });
 
-  // Update button and mode states
   function updateButtonStates() {
     addBtn.className = isAddMode ? "add-active" : "add-no";
     deleteBtn.className = isDeleteMode ? "delete-active" : "delete-no";
   }
 
-  // Load favorites from chrome storage
   function loadFavorites() {
     chrome.storage.sync.get(["favorites"], (result) => {
       container0.innerHTML = "";
@@ -53,10 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadCategories() {
     const totalCategories = 43;
     const categoriesWithLevels = Array.from({ length: totalCategories }, (_, index) => ({
-      id: `${index + 1}` // Create ids from 1 to 43
+      id: `${index + 1}` 
     }));
   
-    // Fetch both category names and levels
     Promise.all([
       fetch('assets/category.txt').then(response => response.text()),
       fetch('assets/class.txt').then(response => response.text())
@@ -68,10 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
       categoriesWithLevels.forEach((category, index) => {
         const btn = document.createElement('button');
         
-        // Category name (use from file or fallback)
         btn.textContent = categoryNames[index] || `Category ${category.id}`;
         
-        // Level assignment (use from file or fallback)
         const levelClass = levelNames[index] ? `${levelNames[index]}` : 'lv1';
         btn.classList.add('category-btn', levelClass);
         
@@ -82,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => {
       console.error('Error loading categories or levels:', error);
       
-      // Fallback if file reading fails
       categoriesWithLevels.forEach((category, index) => {
         const btn = document.createElement('button');
         btn.textContent = `Category ${category.id}`;
@@ -93,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Load emoticons for a specific category
   function loadEmoticons(category) {
     container2.innerHTML = "";
     container1.style.display = "none";
@@ -111,12 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Error loading emoticons:", error));
   }
 
-  // Create a button with copy and add/delete functionality
   function createButton(text, containerId) {
     const btn = document.createElement('button');
     btn.textContent = text;
   
-    // Add random style for container 0 and 2 buttons
     if (containerId === 0 || containerId === 2) {
       const styleVariants = [
         { rgb: 'rgb(245,245,245)', class: 'btn-style-1' },
@@ -130,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
     btn.addEventListener('click', () => {
       if (containerId === 0 && isDeleteMode) {
-        // Delete from favorites
         chrome.storage.sync.get(['favorites'], (result) => {
           const favorites = result.favorites || [];
           const updatedFavorites = favorites.filter(f => f !== text);
@@ -139,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         });
       } else if (containerId === 2 && isAddMode) {
-        // Add to favorites
         chrome.storage.sync.get(['favorites'], (result) => {
           const favorites = result.favorites || [];
           if (!favorites.includes(text)) {
@@ -150,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       } else {
-        // Copy to clipboard
         navigator.clipboard.writeText(text).then(() => {
           showToast('특수문자를 복사했어요 👏');
         });
@@ -160,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return btn;
   }
 
-  // Show toast notification
   function showToast(message) {
     toast.textContent = message;
     toast.style.display = "block";
@@ -170,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   }
 
-  // Back button for container 2
   container2.addEventListener("click", (e) => {
     if (e.target === container2) {
       container2.style.display = "none";

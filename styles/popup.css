@@ -152,7 +152,6 @@ button {
   padding-top: 15px;
 }
 
-/* Category button base styles */
 .category-btn {
   font-size: 12px;
   font-family: "SUIT", sans-serif;
@@ -166,7 +165,6 @@ button {
   line-height: 23px;
 }
 
-/* Level 1 style */
 .category-btn.lv5 {
   color: #ff8686;
   border-color: #ff8686;
@@ -177,7 +175,6 @@ button {
   background-color: #ff86861c;
 }
 
-/* Level 2 style */
 .category-btn.lv4 {
   background-color: #ffffff;
   border-color: #c0c2f9;
@@ -188,7 +185,6 @@ button {
   background-color: #c0c2f916;
 }
 
-/* Level 3 style */
 .category-btn.lv3 {
   background-color: #ffffff;
   border-color: #74d394;
@@ -199,7 +195,6 @@ button {
   background-color: #74d39418;
 }
 
-/* Level 4 style */
 .category-btn.lv2 {
   background-color: #ffffff;
   border-color: #93e0dd;
@@ -210,7 +205,6 @@ button {
   background-color: #93e0dd18;
 }
 
-/* Level 5 style */
 .category-btn.lv1 {
   background-color: #ffffff;
   border-color: #d9b3a3;
@@ -221,7 +215,6 @@ button {
   background-color: #d9b3a31c;
 }
 
-/* Random style button base styles */
 .random-style-btn {
   text-align: center;
   box-sizing: border-box;
@@ -255,7 +248,6 @@ button {
   border: none;
 }
 
-/* Style variants */
 .random-style-btn.btn-style-1 {
   border-color: #e0e0e0;
 }
