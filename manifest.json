@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "snskeyboard",
+    "version": "1.0",
+    "description": "Easy emoticon copying extension",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "assets/icons/favicon.png",
+        "48": "assets/icons/favicon.png",
+        "128": "assets/icons/favicon.png"
+      }
+    },
+    "permissions": [
+      "storage",
+      "clipboardWrite"
+    ],
+    "icons": {
+      "16": "assets/icons/favicon.png",
+      "48": "assets/icons/favicon.png",
+      "128": "assets/icons/favicon.png"
+    }
+  }

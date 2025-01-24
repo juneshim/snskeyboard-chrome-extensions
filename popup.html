@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>snskeyboard</title>
+    <link rel="stylesheet" href="styles/popup.css" />
+    <style>
+      @font-face {
+        font-family: "HSSanTokki20-Regular";
+        src: url("assets/fonts/HSSanTokki2.0(2024).ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "SUIT";
+        src: url("assets/fonts/SUIT-Regular.ttf") format("truetype");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a
+        class="header-title"
+        href="https://snskeyboard.com/emoticon/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >sns.keyboard</a
+      >
+      <div class="header-icon">
+        <button id="github-btn" class="github"></button>
+      </div>
+    </div>
+    <div class="h1">
+      <a class="title">즐겨찾기</a>
+      <div class="fav-btn">
+        <button id="add-btn" class="add-no"></button>
+        <button id="delete-btn" class="delete-no"></button>
+      </div>
+    </div>
+
+    <div id="container-0" class="container-favorites">
+      <!-- Favorite emoticons will be dynamically added here -->
+    </div>
+
+    <div class="h1">
+      <a class="title">빠른탐색</a>
+    </div>
+
+    <div id="container-1" class="container-categories">
+      <!-- Category buttons will be dynamically added here -->
+    </div>
+
+    <div id="container-2" class="container-emoticons" style="display: none">
+      <!-- Emoticon buttons will be dynamically added here -->
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
