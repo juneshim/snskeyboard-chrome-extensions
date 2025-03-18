@@ -94,6 +94,7 @@
 
 ## 📄 라이선스
 
+This project is licensed under the terms of the [MIT License](LICENSE).
 이 프로젝트는 개인적으로 진행한 [snskeybord](https://snskeyboard.com/emoticon/)의 확장 프로그램입니다.
 
 ---
